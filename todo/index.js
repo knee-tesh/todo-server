@@ -1,22 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-
-const todoSchema = mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-    },
-    status: {
-      type: String,
-      required: true,
-    },
-  },
-  { timestamp: true }
-);
-
-const Todo = new mongoose.model("Todo", todoSchema);
+const Todo = require("./todo-schema");
 
 // middleware that is specific to this router
 router.use((req, res, next) => {
